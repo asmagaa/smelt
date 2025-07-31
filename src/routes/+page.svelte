@@ -12,7 +12,7 @@
     function handleScroll() {
         const scrollPercentage = (scrollY + window.innerHeight) / document.body.scrollHeight;
 
-        if (scrollPercentage > 0.7 && !easterEggTriggered) {
+        if (scrollPercentage > 0.6 && !easterEggTriggered) {
             triggerEasterEgg();
         }
     }
@@ -67,3 +67,208 @@
         }
     }
 </script>
+
+
+<svelte:window bind:scrollY on:scroll={handleScroll} />
+
+<main class="container">
+    <header class="hero">
+        <h1>Why I Am the Greatest Programmer that has ever lived</h1>
+        <p class="subtitle">An Exhaustive Dissertation on My Unparalleled Coding Supremacy</p>
+        <p class="WARNING: This well-written document contains dangerous levels of confidence and yapping possibly causing severe eye-rolling and headache."></p>
+    </header>
+
+    <div class="content">
+        <section class="intro">
+            <h2>Executive Summary</h2>
+            <p>
+                Ladies, gentlemen, and fellow carbon-based life forms, you are about to witness something extraordinary. 
+                This document is not just a resume - it's a historical artifact documenting the rise of a coding deity. 
+                Some call it arrogance, I call it factual accuracy. Buckle up, because you're about to read why I am 
+                literally the best thing that has happened to software development since the invention of electricity. 
+            </p>
+            <p>
+                While other developers are still googling "how to center a div," I'm over here architecting solutions 
+                that would make Linus Torvalds weep tears of pure joy. This isn't confidence speaking - this is just 
+                objective reality acknowledging itself.
+            </p>
+        </section>
+
+        <section class="skills">
+            <h2>My S-Tier Superpowers</h2>
+            <p>
+                Let me start by saying that calling my abilities "skills" is like calling Einstein's theories "homework." 
+                I don't just write code - I craft digital poetry that compiles on the first try. While others debug, 
+                I simply will my programs into perfect existence through sheer mental superiority.
+            </p>
+            <p>
+                I speak more programming languages than the United Nations has official languages. C++, JavaScript, Python, 
+                Rust, Go, Assembly, and several languages I invented during my lunch breaks. I dream in binary and wake up 
+                with perfectly optimized algorithms. My IDE doesn't have syntax highlighting because my code is so clean 
+                it illuminates itself.
+            </p>
+            <p>
+                When Stack Overflow has a question, they ask me. When GitHub needs inspiration for new features, they study 
+                my repositories. I don't use Git - Git uses me as a reference implementation. My commits are so well-written 
+                that they're taught in computer science literature courses.
+            </p>
+            <p>
+                Data structures? I invented better ones before breakfast. Big O notation? More like Big ME notation, because 
+                my algorithms transcend traditional complexity analysis. I once optimized a O(n²) algorithm to O(awesome) 
+                just by looking at it disapprovingly.
+            </p>
+        </section>
+
+        <section class="problem-solving">
+            <h2>My Extraordinary Problem-Solving Ability</h2>
+            <p>
+                I don't solve problems - I whisper to them gently until they solve themselves out of respect. My debugging 
+                process consists of three steps: 1) Look at the code, 2) The bugs apologize and fix themselves, 3) Accept praise 
+                from my IDE for being so magnificent.
+            </p>
+            <p>
+                When NASA needs to calculate rocket trajectories, they use my algorithms. When Google's search algorithm feels 
+                inadequate, it looks up to my search implementations for guidance. I once solved the traveling salesman problem 
+                so efficiently that all the salesmen just started teleporting.
+            </p>
+            <p>
+                My approach to architecture is simple: I think of the most elegant solution possible, then I improve it by 300% 
+                because even my first thoughts are better than most people's final drafts. I don't follow design patterns - 
+                design patterns follow me around taking notes.
+            </p>
+            <p>
+                Error handling? In my code, errors don't happen because even exceptions are too intimidated to occur. 
+                When edge cases see my code approaching, they become middle cases out of pure respect. I write tests not 
+                because my code needs them, but because my tests want to be associated with excellence.
+            </p>
+        </section>
+
+        <section class="learning">
+            <h2>My Infinite Knowledge Absorption Matrix</h2>
+            <p>
+                While other developers "learn" technologies, I simply download them directly into my consciousness through 
+                pure intellectual osmosis. I read documentation so fast that the authors have to rewrite it to keep up with 
+                my comprehension speed. I don't attend conferences - conferences attend me.
+            </p>
+            <p>
+                I learned React before it was invented. I was writing functional programming when functions were still 
+                procedural. I mastered machine learning when AI was still trying to figure out what intelligence meant. 
+                Framework authors call me for advice on how to improve their own creations.
+            </p>
+            <p>
+                My learning curve isn't a curve - it's a vertical line that shoots straight up into the stratosphere of 
+                knowledge. When new technologies emerge, they're basically just catching up to concepts I've already 
+                internalized. TypeScript? I was thinking in types before types existed.
+            </p>
+            <p>
+                I don't have side projects - I have side masterpieces. Each one is a testament to human potential and 
+                a glimpse into the future of software development. My GitHub profile is basically a museum of computational 
+                excellence that researchers will study for generations.
+            </p>
+        </section>
+
+        <section class="leadership">
+            <h2>My Napoleonic Leadership and Collaboration Excellence</h2>
+            <p>
+                When I join a team, productivity doesn't just increase - it transcends mathematical limitations. Other 
+                developers don't just look up to me; they recalibrate their entire understanding of what's possible in 
+                software engineering. I don't do code reviews - I perform code enlightenments.
+            </p>
+            <p>
+                My pull requests are so perfect that they automatically get approved by the universe itself. When I comment 
+                on someone's code, it's not criticism - it's a masterclass in excellence delivery. Junior developers frame 
+                my code reviews and hang them on their walls for inspiration.
+            </p>
+            <p>
+                I communicate so effectively that when I explain complex technical concepts, even non-technical people 
+                suddenly understand quantum computing. My documentation is so clear and comprehensive that it's being 
+                considered for the Pulitzer Prize in the "Technical Literature That Makes You Weep With Joy" category.
+            </p>
+            <p>
+                Git workflows become more elegant just by my presence in the repository. Merge conflicts see me coming 
+                and resolve themselves preemptively. I don't just follow agile methodologies - agile methodologies 
+                evolve to accommodate my superior development velocity.
+            </p>
+        </section>
+
+        <section class="passion">
+            <h2>My Transcendent Passion Brighter Than A 100 Suns</h2>
+            <p>
+                My passion for programming isn't just a career choice - it's a calling from the digital gods themselves. 
+                I don't work 9-to-5; I work 25-hour days (I invented extra time through efficient coding). When I sleep, 
+                I dream in perfectly optimized algorithms that solve world hunger and achieve world peace simultaneously.
+            </p>
+            <p>
+                I love coding so much that my heart beats in perfect binary rhythm. My blood type is JavaScript (though 
+                I prefer TypeScript for formal occasions). When I'm not coding, I'm thinking about coding. When I'm 
+                thinking about coding, I'm accidentally solving problems that haven't been invented yet.
+            </p>
+            <p>
+                My dedication is so intense that coffee shops started serving my preferred blend as "The Developer's 
+                Enlightenment." I don't burn out - I burn bright, like a supernova of computational excellence that 
+                illuminates the entire software development galaxy.
+            </p>
+            <p>
+                Every line of code I write is infused with pure passion and cosmic energy. My functions don't just execute - 
+                they perform. My variables don't just store data - they cradle information with the tenderness of a master 
+                craftsman holding their finest creation.
+            </p>
+        </section>
+
+        <section class="innovation">
+            <h2>My Reality-Bending Innovation Capabilities</h2>
+            <p>
+                I don't just think outside the box - I redesigned the box, optimized it, and then transcended the very 
+                concept of containment itself. My innovations are so groundbreaking that they're usually ahead of their 
+                time by at least three technological generations.
+            </p>
+            <p>
+                When I encounter a problem that seems impossible, I smile because impossible problems are my specialty. 
+                I've solved more "unsolvable" programming challenges than there are stars in the visible universe. 
+                P vs NP? Solved it during a coffee break, but I'm keeping the solution to myself to maintain universal balance.
+            </p>
+            <p>
+                My creative solutions are so elegant that they're studied in advanced mathematics courses as examples of 
+                perfect logical beauty. I once wrote a sorting algorithm so efficient that it sorted data before it was 
+                even inputted. Time itself rearranges to accommodate my code's execution efficiency.
+            </p>
+            <p>
+                Innovation isn't something I do - it's something that happens naturally in my presence. Ideas manifest into 
+                perfect implementations through sheer proximity to my genius. Other developers take notes not just on what 
+                I code, but on how I breathe while coding, hoping to capture some fragment of the magic.
+            </p>
+        </section>
+
+        <section class="conclusion">
+            <h2>A Modest Conclusion to This Understated Self-Assessment</h2>
+            <p>
+                In conclusion, I am not just a good programmer - I am the programmer. The alpha and omega of code. 
+                The beginning and end of software development excellence. Hiring me isn't just a business decision - 
+                it's an investment in the future of human technological evolution.
+            </p>
+            <p>
+                I don't just write software; I compose digital symphonies that make angels weep and demons applaud. 
+                My code doesn't just work - it transcends the physical limitations of silicon and achieves a state of 
+                computational nirvana that theoretical physicists are still trying to understand.
+            </p>
+            <p>
+                This document, while comprehensive, only scratches the surface of my capabilities. My true power levels 
+                are classified information that would destabilize the global economy if fully disclosed. I am not just 
+                a developer - I am a force of nature, a phenomenon, a gift to humanity's technological advancement.
+            </p>
+            <p>
+                Some might call this arrogance. I call it radical honesty. The truth is, I'm probably being too modest. 
+                But humility is one of my many virtues, right alongside my ability to make computers feel emotions and 
+                my talent for writing code so beautiful that it belongs in the Louvre.
+            </p>
+            <p class="hint">
+                <em>Scroll down to about 60-70% of the page to enter the Matrix...</em>
+            </p>
+            <p class="disclaimer">
+                <strong>Legal Notice:</strong> This document may cause spontaneous applause, uncontrollable admiration, 
+                and an irresistible urge to hire the author immediately. Side effects may include questioning your own 
+                career choices and a sudden desire to learn everything about programming.
+            </p>
+        </section>
+    </div>
+</main>
