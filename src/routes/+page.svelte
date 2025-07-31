@@ -68,7 +68,6 @@
     }
 </script>
 
-
 <svelte:window bind:scrollY on:scroll={handleScroll} />
 
 <main class="container">
@@ -275,6 +274,7 @@
 </main>
 
 
+
 <style>
     :global(body) {
         margin: 0;
@@ -305,15 +305,15 @@
         font-style: italic;
     }
 
-    .hero-disclaimer {
+    .disclaimer {
         font-size: 1rem;
         color: yellow;
         margin-top: 1rem;
         padding: 0.5rem;
-        background: darkred;
+        background: red;
         border-radius: 5px;
         border: 1px solid yellow;
-        animation: blink 2s infinite;
+        animation: blink 1s infinite;
     }
 
     @keyframes blink {
@@ -351,44 +351,44 @@
         border-left: 5px solid yellow;
     }
 
-    .godlike-skills {
+    .skills {
         background: linear-gradient(135deg, rgba(244,67,54,0.1), rgba(233,30,99,0.1));
         border-left: 5px solid red;
     }
 
-    .problem-solving-genius {
+    .problem-solving {
         background: linear-gradient(135deg, rgba(156,39,176,0.1), rgba(103,58,183,0.1));
         border-left: 5px solid violet;
     }
 
-    .learning-supremacy {
+    .learning {
         background: linear-gradient(135deg, rgba(63,81,181,0.1), rgba(33,150,243,0.1));
         border-left: 5px solid blue;
     }
 
-    .team-leadership {
+    .leadership {
         background: linear-gradient(135deg, rgba(0,188,212,0.1), rgba(0,150,136,0.1));
         border-left: 5px solid cyan;
     }
 
-    .passion-and-dedication {
+    .passion {
         background: linear-gradient(135deg, rgba(76,175,80,0.1), rgba(139,195,74,0.1));
         border-left: 5px solid green;
     }
 
-    .innovation-godmode {
+    .innovation {
         background: linear-gradient(135deg, rgba(255,152,0,0.1), rgba(255,193,7,0.1));
         border-left: 5px solid orange;
     }
 
-    .humble-conclusion {
+    .conclusion {
         background: linear-gradient(135deg, rgba(121,85,72,0.1), rgba(158,158,158,0.1));
         border-left: 5px solid darkgoldenrod;
         position: relative;
         overflow: hidden;
     }
 
-    .humble-conclusion::before {
+    .conclusion::before {
         content: '👑';
         position: absolute;
         top: 1rem;
@@ -418,25 +418,12 @@
         font-size: 1.1rem;
     }
 
-    .easter-egg-hint {
+    .hint {
         text-align: center;
         color: grey;
         font-size: 0.9rem;
         margin-top: 2rem;
         animation: glow 3s ease-in-out infinite alternate;
-    }
-
-    .final-disclaimer {
-        background: linear-gradient(45deg, orange, yellow);
-        color: white;
-        padding: 1rem;
-        border-radius: 10px;
-        margin-top: 2rem;
-        text-align: center;
-        font-weight: bold;
-        border: 2px solid white;
-        box-shadow: 0 0 20px darkred;
-        animation: pulse 2s infinite;
     }
 
     @keyframes glow {
