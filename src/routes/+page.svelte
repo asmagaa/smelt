@@ -73,9 +73,9 @@
 
 <main class="container">
     <header class="hero">
-        <h1>Why I Am the Greatest Programmer that has ever lived</h1>
+        <h1>Why I Am the Greatest Programmer That Has Ever Lived</h1>
         <p class="subtitle">An Exhaustive Dissertation on My Unparalleled Coding Supremacy</p>
-        <p class="WARNING: This well-written document contains dangerous levels of confidence and yapping possibly causing severe eye-rolling and headache."></p>
+        <p class="disclaimer">WARNING: This well-written document contains dangerous levels of confidence and yapping possibly causing severe eye-rolling and headache.</p>
     </header>
 
     <div class="content">
@@ -271,4 +271,183 @@
             </p>
         </section>
     </div>
+
 </main>
+
+
+<style>
+    :global(body) {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 4rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        font-style: italic;
+    }
+
+    .hero-disclaimer {
+        font-size: 1rem;
+        color: yellow;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        background: darkred;
+        border-radius: 5px;
+        border: 1px solid yellow;
+        animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0.7; }
+    }
+
+    .content {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px black;
+        overflow: hidden;
+    }
+
+    section {
+        padding: 2rem;
+        border-bottom: 1px solid white;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    section:hover {
+        background: linear-gradient(45deg, rgba(255,255,255,0.05), rgba(52,152,219,0.05));
+        transform: translateX(5px);
+        box-shadow: -5px 0 15px darkgrey;
+    }
+
+    section:last-child {
+        border-bottom: none;
+    }
+
+    /* Specific section styling for extra DRAMA */
+    .intro {
+        background: linear-gradient(135deg, rgba(255,193,7,0.1), rgba(255,87,34,0.1));
+        border-left: 5px solid yellow;
+    }
+
+    .godlike-skills {
+        background: linear-gradient(135deg, rgba(244,67,54,0.1), rgba(233,30,99,0.1));
+        border-left: 5px solid red;
+    }
+
+    .problem-solving-genius {
+        background: linear-gradient(135deg, rgba(156,39,176,0.1), rgba(103,58,183,0.1));
+        border-left: 5px solid violet;
+    }
+
+    .learning-supremacy {
+        background: linear-gradient(135deg, rgba(63,81,181,0.1), rgba(33,150,243,0.1));
+        border-left: 5px solid blue;
+    }
+
+    .team-leadership {
+        background: linear-gradient(135deg, rgba(0,188,212,0.1), rgba(0,150,136,0.1));
+        border-left: 5px solid cyan;
+    }
+
+    .passion-and-dedication {
+        background: linear-gradient(135deg, rgba(76,175,80,0.1), rgba(139,195,74,0.1));
+        border-left: 5px solid green;
+    }
+
+    .innovation-godmode {
+        background: linear-gradient(135deg, rgba(255,152,0,0.1), rgba(255,193,7,0.1));
+        border-left: 5px solid orange;
+    }
+
+    .humble-conclusion {
+        background: linear-gradient(135deg, rgba(121,85,72,0.1), rgba(158,158,158,0.1));
+        border-left: 5px solid darkgoldenrod;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .humble-conclusion::before {
+        content: '👑';
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+        font-size: 3rem;
+        opacity: 0.1;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    h2 {
+        color: #2c3e50;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid lightblue;
+        display: inline-block;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+        font-size: 1.1rem;
+    }
+
+    .easter-egg-hint {
+        text-align: center;
+        color: grey;
+        font-size: 0.9rem;
+        margin-top: 2rem;
+        animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    .final-disclaimer {
+        background: linear-gradient(45deg, orange, yellow);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 2rem;
+        text-align: center;
+        font-weight: bold;
+        border: 2px solid white;
+        box-shadow: 0 0 20px darkred;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 5px lightblue; }
+        to { text-shadow: 0 0 20px lightblue, 0 0 30px lightblue; }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+        100% { transform: scale(1); }
+    }
+
+</style>
