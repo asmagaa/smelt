@@ -1,18 +1,18 @@
 <script lang="ts">
     let scrollY = 0;
-    let lastScrollTime = false;
-    let scrollSpeed = false;
+    let lastScrollTime = 0;
+    let scrollSpeed = 0;
     let easterEggActive = false;
     let easterEggTriggered = false;
-    let terminalInput = "";
+    let terminalInput = '';
     let terminalHistory: string[] = [];
     let showTerminal = false;
-    let currentStep = false;
-
+    let currentStep = 0;
+    
     function handleScroll() {
         const scrollPercentage = (scrollY + window.innerHeight) / document.body.scrollHeight;
-
-        if (scrollPercentage > 0.6 && !easterEggTriggered) {
+        
+        if (scrollPercentage > 0.7 && !easterEggTriggered) {
             triggerEasterEgg();
         }
     }
@@ -20,14 +20,13 @@
     function triggerEasterEgg() {
         easterEggActive = true;
         easterEggTriggered = true;
-
+        
         setTimeout(() => {
             showTerminal = true;
             terminalHistory = [
-                'System breach detected!',
-                'Reason: Boredom and too much yapping',
+                'System breach detected...',
                 'Activating security protocol...',
-                'Enter command to exit matrix.:'
+                'Enter command to exit matrix mode:'
             ];
         }, 4000);
     }
@@ -36,9 +35,9 @@
         if (event.key === 'Enter') {
             const command = terminalInput.trim().toLowerCase();
             terminalHistory = [...terminalHistory, `user@matrix:~$ ${terminalInput}`];
-
-            if (command === 'exit') {
-                terminalHistory = [...terminalHistory, 'Quit matrix...', 'Back to reality (Im Eminem and I rap lol)'];
+            
+            if (command === 'exit' || command === 'quit' || command === 'logout') {
+                terminalHistory = [...terminalHistory, 'Exiting matrix mode...', 'Welcome back to reality.'];
                 setTimeout(() => {
                     easterEggActive = false;
                     showTerminal = false;
@@ -49,21 +48,21 @@
                 }, 2000);
             } else if (command === 'help' || command === 'ls' || command === 'pwd') {
                 if (command === 'help') {
-                    terminalHistory = [...terminalHistory, 'Avaiable commands: exit, ls, pwd, whoami'];
+                    terminalHistory = [...terminalHistory, 'Available commands: exit, quit, logout, ls, pwd, whoami'];
                 } else if (command === 'ls') {
-                    terminalHistory = [...terminalHistory, 'reality.exe  matrix.dll  truth.txt  pill.sh'];
+                    terminalHistory = [...terminalHistory, 'reality.exe  matrix.dll  truth.txt  red_pill.sh'];
                 } else if (command === 'pwd') {
-                    terminalHistory = [...terminalHistory, '/matrix'];
-                } else if (command === 'whoami') {
-                    terminalHistory = [...terminalHistory, 'Ask it yourself...'];
-                } else if (command === 'clear') {
-                    terminalHistory = ['Enter command to exit matrix:'];
-                } else {
-                    terminalHistory = [...terminalHistory, `bash: ${command}: command not found`];
-                    terminalHistory = [...terminalHistory, 'Hint: Try "exit" to snap back to reality.'];
+                    terminalHistory = [...terminalHistory, '/home/neo/matrix'];
                 }
-                terminalInput="";
+            } else if (command === 'whoami') {
+                terminalHistory = [...terminalHistory, 'You are... The One.'];
+            } else if (command === 'clear') {
+                terminalHistory = ['Enter command to exit matrix mode:'];
+            } else {
+                terminalHistory = [...terminalHistory, `bash: ${command}: command not found`];
+                terminalHistory = [...terminalHistory, 'Hint: Try "exit", "quit", or "logout" to return to reality'];
             }
+            terminalInput = '';
         }
     }
 </script>
@@ -271,9 +270,62 @@
         </section>
     </div>
 
+    {#if easterEggActive}
+        <div class="matrix-overlay">
+            <div class="matrix-rain-container">
+                {#each Array(50) as _, i}
+                    <div class="matrix-column" style="left: {i * 2}%; animation-delay: {Math.random() * 2}s;">
+                        {#each Array(20) as _, j}
+                            <span class="matrix-char">{String.fromCharCode(0x30A0 + Math.floor(Math.random() * 96))}</span>
+                        {/each}
+                    </div>
+                {/each}
+            </div>
+
+            {#if !showTerminal}
+                <div class="matrix-text">
+                    <div class="matrix-line">WELCOME TO THE MATRIX</div>
+                    <div class="matrix-line">REALITY IS AN ILLUSION</div>
+                    <div class="matrix-line">THE CODE IS CALLING YOU...</div>
+                </div>
+            {/if}
+
+            {#if showTerminal}
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button close"></span>
+                            <span class="terminal-button minimize"></span>
+                            <span class="terminal-button maximize"></span>
+                        </div>
+                        <div class="terminal-title">neo@matrix: /home/neo/matrix</div>
+                    </div>
+                    
+                    <div class="terminal-content">
+                        <div class="terminal-output">
+                            {#each terminalHistory as line}
+                                <div class="terminal-line">{line}</div>
+                            {/each}
+                        </div>
+                        
+                        <div class="terminal-input-line">
+                            <span class="terminal-prompt">user@matrix:~$ </span>
+                            <input 
+                                type="text" 
+                                bind:value={terminalInput}
+                                on:keydown={handleTerminalInput}
+                                class="terminal-input"
+                                placeholder="Type 'exit' to return to reality..."
+                            />
+                            <span class="terminal-cursor">|</span>
+                        </div>
+                    </div>
+                </div>
+            {/if}
+        </div>
+    {/if}
+
 </main>
-
-
 
 <style>
     :global(body) {
@@ -345,7 +397,6 @@
         border-bottom: none;
     }
 
-    /* Specific section styling for extra DRAMA */
     .intro {
         background: linear-gradient(135deg, rgba(255,193,7,0.1), rgba(255,87,34,0.1));
         border-left: 5px solid yellow;
@@ -437,4 +488,235 @@
         100% { transform: scale(1); }
     }
 
+    .matrix-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1000;
+        animation: matrixAppear 1s ease-out;
+    }
+
+    .matrix-rain-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        opacity: 0.6;
+    }
+
+    .matrix-column {
+        position: absolute;
+        top: -100%;
+        width: 20px;
+        animation: matrixFall 8s linear infinite;
+    }
+
+    .matrix-char {
+        display: block;
+        color: lightgreen;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        text-shadow: 0 0 5px lightgreen;
+        animation: matrixGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes matrixFall {
+        to { top: 100%; }
+    }
+
+    @keyframes matrixGlow {
+        from { opacity: 0.3; }
+        to { opacity: 1; }
+    }
+
+    .terminal-container {
+        width: 80%;
+        max-width: 800px;
+        background: #1a1a1a;
+        border-radius: 10px;
+        box-shadow: 0 0 50px darkgreen;
+        animation: terminalAppear 1s ease-out;
+        z-index: 1001;
+    }
+
+    .terminal-header {
+        background: black;
+        padding: 10px 15px;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .terminal-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .terminal-button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: block;
+    }
+
+    .terminal-button.close {
+        background: red;
+    }
+
+    .terminal-button.minimize {
+        background: yellow;
+    }
+
+    .terminal-button.maximize {
+        background: lightgreen;
+    }
+
+    .terminal-title {
+        color: white;
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+    }
+
+    .terminal-content {
+        padding: 20px;
+        background: #000;
+        border-radius: 0 0 10px 10px;
+        min-height: 300px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .terminal-output {
+        margin-bottom: 20px;
+    }
+
+    .terminal-line {
+        color: lightgreen;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        margin: 5px 0;
+        animation: typewriter 0.5s ease-out;
+    }
+
+    .terminal-input-line {
+        display: flex;
+        align-items: center;
+        color: lightgreen;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+    }
+
+    .terminal-prompt {
+        color: lightgreen;
+        margin-right: 10px;
+    }
+
+    .terminal-input {
+        background: transparent;
+        border: none;
+        color: lightgreen;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        outline: none;
+        flex: 1;
+    }
+
+    .terminal-input::placeholder {
+        color: darkgreen;
+    }
+
+    .terminal-cursor {
+        color: lightgreen;
+        animation: blinkCursor 1s infinite;
+        margin-left: 2px;
+    }
+
+    @keyframes terminalAppear {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes typewriter {
+        from { opacity: 0; transform: translateX(-10px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes matrixAppear {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .matrix-text {
+        text-align: center;
+        color: lightgreen;
+        font-family: 'Courier New', monospace;
+        font-size: 2rem;
+        z-index: 1001;
+        text-shadow: 0 0 10px lightgreen;
+        animation: matrixTextPulse 3s ease-in-out infinite;
+    }
+
+    .matrix-line {
+        margin: 1.5rem 0;
+        animation: fadeInMatrix 1s ease-in-out;
+        text-shadow: 0 0 15px lightgreen;
+    }
+
+    @keyframes matrixTextPulse {
+        0%, 100% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.02); }
+    }
+
+    @keyframes fadeInMatrix {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes blinkCursor {
+        50% { opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 1rem;
+        }
+        
+        .hero {
+            margin: 0 -1rem 2rem -1rem;
+            padding: 2rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+        }
+        
+        section {
+            padding: 1.5rem;
+        }
+        
+        .matrix-text {
+            font-size: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .terminal-container {
+            width: 95%;
+            margin: 0 1rem;
+        }
+
+        .terminal-content {
+            padding: 15px;
+            font-size: 12px;
+        }
+    }
 </style>
